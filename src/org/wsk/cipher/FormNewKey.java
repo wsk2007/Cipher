@@ -2,6 +2,8 @@ package org.wsk.cipher;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class FormNewKey extends JFrame {
     private JPanel contentPane;
@@ -21,8 +23,21 @@ public class FormNewKey extends JFrame {
         JLabel lblNewLabel = new JLabel("\u4F60\u8981\u521B\u5EFA\u54EA\u4E2A\u79D8\u94A5\uFF1F");
 
         JButton newAESKey = new JButton("AES");
+        newAESKey.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                //TODO
+            }
+        });
 
         JButton newRSAKey = new JButton("RSA");
+        newRSAKey.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent arg0) {
+                //TODO
+            }
+        });
+
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         gl_contentPane.setHorizontalGroup(
                 gl_contentPane.createParallelGroup(GroupLayout.Alignment.LEADING)

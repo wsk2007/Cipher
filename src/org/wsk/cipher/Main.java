@@ -17,5 +17,7 @@ public class Main {
         f.setVisible(true);
         FormCommonDialog d = new FormCommonDialog("hahahahhaha");
         d.setVisible(true);
+        FormNewKey nk = new FormNewKey();
+        nk.setVisible(true);
     }
 }
