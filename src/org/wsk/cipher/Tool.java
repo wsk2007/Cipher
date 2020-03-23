@@ -31,11 +31,16 @@
 
 package org.wsk.cipher;
 
+import sun.misc.BASE64Encoder;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class Tool {
@@ -106,5 +111,29 @@ public class Tool {
         }
         return new String(tmp);
     }
+
+    /**利用MD5进行加密
+     * @param str  待加密的字符串
+     * @return  加密后的字符串
+     * @throws NoSuchAlgorithmException  没有这种产生消息摘要的算法
+     * @throws UnsupportedEncodingException
+     */
+    public static String md5Password(String str){
+        //确定计算方法
+        MessageDigest md5= null;
+        try {
+            md5 = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        byte[] newStr = new byte[0];
+        try {
+            newStr = md5.digest(str.getBytes("utf-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return ParseSystemUtil.parseByte2HexStr(newStr);
+    }
+
 
 }

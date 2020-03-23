@@ -31,27 +31,8 @@
 
 package org.wsk.cipher;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-public class Main {
-    public static void main(String[] args) throws IOException {
-        CaptchaHelper c = new CaptchaHelper();
-        c.output(c.getImage() , new FileOutputStream("test.jpg"));
-        System.out.println(c.getText());
-        ObjectHelper<SecretKeys> o = new ObjectHelper<>();
-        o.writeObject(new SecretKeys("ae" , "be" , "ce") , "test.key");
-        SecretKeys s = o.readObject("test.key");
-        System.out.println(s.getAES_Key());
-        System.out.println(s.getRSA_Private_Key());
-        System.out.println(s.getRSA_Public_Key());
-        /*FormMain f = new FormMain();
-        f.setVisible(true);
-        FormCommonDialog d = new FormCommonDialog("hahahahhaha");
-        d.setVisible(true);
-        FormNewKey nk = new FormNewKey();
-        nk.setVisible(true);*/
-        System.out.println(Tool.md5Password("123"));
+public class CipherException extends Exception{
+    public CipherException(String msg){
+        super(msg);
     }
 }
